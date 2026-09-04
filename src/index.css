@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Anton", "Arial Narrow", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  --color-court: #0d1b12;
+  --color-court-2: #142a1c;
+  --color-hardwood: #b8763f;
+  --color-hardwood-dark: #8a5a30;
+  --color-paint: #e8c14a;
+  --color-paint-2: #f2d878;
+  --color-ember: #d94f36;
+  --color-ink: #f4ede0;
+  --color-ink-dim: #cdbfa4;
+  --color-line: #2a3f2e;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-court);
+  color: var(--color-ink);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+}
+
+/* subtle hardwood texture stripes used behind hero + court sections */
+.court-lines {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(232,193,74,0.06) 0px, rgba(232,193,74,0.06) 1px, transparent 1px, transparent 64px);
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--color-court-2); }
+::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 8px; }
+
+@keyframes scoreboard-flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  94% { opacity: 0.7; }
+  96% { opacity: 1; }
+}
+.animate-flicker { animation: scoreboard-flicker 4s infinite; }
